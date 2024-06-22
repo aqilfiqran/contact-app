@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as Yup from "yup"
 import { useContactDetail, useContactUpdate } from "app/services/api/contact"
+import { useEffect } from "react"
 
 // why null? because we want to use the default values
 // how to make it required in
@@ -33,24 +34,20 @@ type Schema = {
 export function useUpdate() {
   const navigation = useNavigation<AppNavScreen>()
   const router = useRoute<AppRouteProp<"ContactUpdate">>()
+  const { id } = router.params
 
-  const {
-    data = {
-      firstName: "",
-      lastName: "",
-      age: "",
-      photo: "",
-    },
-  } = useContactDetail({
-    params: { id: router.params.id },
+  const { data } = useContactDetail({
+    params: { id },
   })
 
   const form = useForm({
     mode: "all",
     resolver: yupResolver(schema),
     defaultValues: {
-      ...data,
-      age: data.age.toString(),
+      firstName: "",
+      lastName: "",
+      age: "",
+      photo: "",
     },
   })
 
@@ -60,12 +57,26 @@ export function useUpdate() {
     formState: { isValid, isDirty },
   } = form
 
+  useEffect(() => {
+    if (!data) return
+
+    form.reset({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      age: data.age.toString(),
+      photo: data.photo,
+    })
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
+
   const { mutate, isLoading } = useContactUpdate()
 
   const handleSave = (values: Schema) => {
     mutate(
       {
         body: values,
+        params: { id },
       },
       {
         onSuccess: () => {

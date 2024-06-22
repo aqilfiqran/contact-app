@@ -43,7 +43,7 @@ export type OptionsContactUpdate = Pick<
 export type ResponseContactUpdate = null
 
 export type OptionsContactDelete = Pick<
-  BaseServiceOptions<{ id: number }, OptionRecord, OptionRecord>,
+  BaseServiceOptions<{ id: string }, OptionRecord, OptionRecord>,
   "params"
 >
 

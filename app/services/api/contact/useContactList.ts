@@ -6,6 +6,6 @@ export const useContactList = () => {
   return useQuery({
     queryKey: contactKeys.all,
     queryFn: contactApi.contactList,
-    select: (data) => data.data,
+    select: (response) => response.data.data,
   })
 }

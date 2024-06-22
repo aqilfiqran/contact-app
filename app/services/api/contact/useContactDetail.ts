@@ -7,6 +7,6 @@ export const useContactDetail = (options: OptionsContactDetail) => {
   return useQuery({
     queryKey: contactKeys.detail(options),
     queryFn: ({ queryKey: [{ options }] }) => contactApi.contactDetail(options),
-    select: (data) => data.data,
+    select: (response) => response.data.data,
   })
 }

@@ -11,6 +11,7 @@ import React from "react"
 
 export function Avatar(props: AvatarProps) {
   const theme = useTheme()
+  const { colors } = theme
   const {
     shape = "circle",
     source,
@@ -57,7 +58,9 @@ export function Avatar(props: AvatarProps) {
   const borderRadiusStyle = shape === "circle" ? 9999 : border.small
 
   const $imageBorderRadiusStyle: ImageProps["style"] =
-    shape === "circle" ? { borderRadius: 9999 } : { borderRadius: border.micro }
+    shape === "circle"
+      ? { borderRadius: 9999, borderWidth: 0.1, borderColor: colors.palette.neutral.main }
+      : { borderRadius: border.micro }
   const $imageStyles = [$image, $imageBorderRadiusStyle, $customStyle]
 
   const isImage = !!source && !errorImage

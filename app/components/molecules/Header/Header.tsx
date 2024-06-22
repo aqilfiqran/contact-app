@@ -75,7 +75,7 @@ export function Header(props: HeaderProps) {
               ]}
               pointerEvents="none"
             >
-              <Text preset="Text lg" {...titleProps} style={[$title, titleProps?.style]} />
+              <Text preset="Text lg" weight="bold" {...titleProps} style={[$title, titleProps?.style]} />
             </View>
           )}
 

@@ -15,10 +15,10 @@ const contactDetail = ({ params }: OptionsContactDetail) =>
   apiInstance.get<ResponseContactDetail>(`contact/${params?.id}`)
 
 const contactCreate = ({ body }: OptionsContactCreate) =>
-  apiInstance.post<ResponseContactCreate>("contact", { body })
+  apiInstance.post<ResponseContactCreate>("contact", body)
 
 const contactUpdate = ({ params, body }: OptionsContactUpdate) =>
-  apiInstance.put<ResponseContactCreate>(`contact/${params?.id}`, { body })
+  apiInstance.put<ResponseContactCreate>(`contact/${params?.id}`, body)
 
 const contactDelete = ({ params }: OptionsContactDelete) =>
   apiInstance.delete<ResponseContactCreate>(`contact/${params?.id}`)

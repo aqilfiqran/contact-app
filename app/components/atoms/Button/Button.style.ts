@@ -3,11 +3,11 @@ import { PaletteVariant, Theme, border, spacing } from "app/theme"
 import { ButtonPresets, ButtonSizes } from "./Button.types"
 
 const $baseViewStyle: ViewStyle = {
-  minHeight: 56,
-  borderRadius: border.micro,
+  minHeight: 48,
+  borderRadius: border.extraSmall,
   justifyContent: "center",
   // paddingVertical: spacing.small,
-  paddingHorizontal: spacing.small,
+  paddingHorizontal: spacing.medium,
   overflow: "hidden",
 }
 

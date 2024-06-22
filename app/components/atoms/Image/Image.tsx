@@ -28,12 +28,13 @@ export function Image(props: ImageProps) {
   }
 
   return (
-    <Column
-      width={ImageSizeStyle?.size.width}
-      height={ImageSizeStyle?.size.height}
-      overflow="hidden"
-    >
-      <PrimitiveImage source={source} style={$styles} {...rest} onLoad={() => setLoading(false)} />
+    <Column style={$styles}>
+      <PrimitiveImage
+        source={source}
+        style={$styles}
+        {...rest}
+        onLoadEnd={() => setLoading(false)}
+      />
       {loading && (
         <Box top={0} right={0} left={0} bottom={0}>
           <SkeletonPlaceholder>

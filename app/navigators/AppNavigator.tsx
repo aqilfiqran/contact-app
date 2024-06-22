@@ -35,6 +35,7 @@ export type AppStackParamList = {
   ContactList: undefined
   ContactDetail: { id: string }
   ContactCreate: undefined
+  ContactUpdate: { id: string }
 }
 
 /**
@@ -71,6 +72,7 @@ const AppStack = observer(function AppStack() {
     >
       <Stack.Screen name="ContactList" component={Screens.ContactListScreen} />
       <Stack.Screen name="ContactDetail" component={Screens.ContactDetailScreen} />
+      <Stack.Screen name="ContactUpdate" component={Screens.ContactUpdateScreen} />
       <Stack.Screen name="ContactCreate" component={Screens.ContactCreateScreen} />
     </Stack.Navigator>
   )

@@ -22,7 +22,7 @@ import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-c
 import * as Linking from "expo-linking"
 import { useInitialRootStore } from "./models"
 import { AppNavigator, useNavigationPersistence } from "./navigators"
-import { ErrorBoundary } from "./screens/ErrorScreen/ErrorBoundary"
+import { ErrorBoundary } from "./screens/Error/ErrorBoundary"
 import { customFontsToLoad } from "./theme"
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet"
 import Config from "./config"

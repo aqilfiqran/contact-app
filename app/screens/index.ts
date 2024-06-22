@@ -1,3 +1,7 @@
 export * from "./BlankScreen"
-export * from "./ErrorScreen/ErrorBoundary"
+export * from "./Error/ErrorBoundary"
 // export other screens here
+
+export * from "./ContactCreate"
+export * from "./ContactDetail"
+export * from "./ContactList"

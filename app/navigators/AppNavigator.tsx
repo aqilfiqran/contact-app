@@ -32,9 +32,9 @@ import { colors } from "app/theme"
  *   https://reactnavigation.org/docs/typescript/#organizing-types
  */
 export type AppStackParamList = {
-  Welcome: undefined
-  // 🔥 Your screens go here
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+  ContactList: undefined
+  ContactDetail: { id: string }
+  ContactCreate: undefined
 }
 
 /**
@@ -61,11 +61,17 @@ const Stack = createNativeStackNavigator<AppStackParamList>()
 const AppStack = observer(function AppStack() {
   return (
     <Stack.Navigator
-      screenOptions={{ headerShown: false, navigationBarColor: colors.default.background }}
+      screenOptions={{
+        headerShown: false,
+        navigationBarColor: colors.default.background,
+        animation: "slide_from_right",
+        animationDuration: 250,
+      }}
+      initialRouteName="ContactList"
     >
-      <Stack.Screen name="Welcome" component={Screens.BlankScreen} />
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      <Stack.Screen name="ContactList" component={Screens.ContactListScreen} />
+      <Stack.Screen name="ContactDetail" component={Screens.ContactDetailScreen} />
+      <Stack.Screen name="ContactCreate" component={Screens.ContactCreateScreen} />
     </Stack.Navigator>
   )
 })

@@ -7,6 +7,7 @@ import { ImageProps } from "react-native"
 import { Column } from "app/components/atoms/Container"
 import { Image } from "app/components/atoms/Image"
 import { Text } from "app/components/atoms/Text"
+import React from "react"
 
 export function Avatar(props: AvatarProps) {
   const theme = useTheme()
@@ -20,6 +21,8 @@ export function Avatar(props: AvatarProps) {
     customSize,
     customStyle: $customStyle,
   } = props
+
+  const [errorImage, setErrorImage] = React.useState(false)
 
   const avatarSize = {
     tiny: {
@@ -57,18 +60,27 @@ export function Avatar(props: AvatarProps) {
     shape === "circle" ? { borderRadius: 9999 } : { borderRadius: border.micro }
   const $imageStyles = [$image, $imageBorderRadiusStyle, $customStyle]
 
+  const isImage = !!source && !errorImage
+
   return (
     <Column
       alignment="center"
       arrangement="center"
-      backgroundColor={!source ? color : undefined}
+      backgroundColor={!isImage ? color : undefined}
       width={$sizeStyle}
       height={$sizeStyle}
       borderRadius={borderRadiusStyle}
       style={$customStyle}
     >
-      {source ? (
-        <Image source={source} resizeMode="cover" style={$imageStyles} />
+      {isImage ? (
+        <Image
+          source={source}
+          resizeMode="cover"
+          style={$imageStyles}
+          onError={() => {
+            setErrorImage(true)
+          }}
+        />
       ) : (
         <Text
           preset={avatarSize[size].textPreset}

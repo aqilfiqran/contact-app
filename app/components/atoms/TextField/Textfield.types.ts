@@ -50,7 +50,7 @@ export interface TextFieldProps extends Omit<TextInputProps, "ref"> {
   /**
    * The helper text to display if not using `helperTx`.
    */
-  helper?: TextProps["text"]
+  helper?: TextPropsType
   /**
    * Helper text which is looked up via i18n.
    */

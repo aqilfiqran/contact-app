@@ -129,6 +129,7 @@ export const TextField = forwardRef(function TextField(
   }, [])
 
   const labelOptionalProps = createTextProps(labelOptional)
+  const helperProps = createTextProps(helper)
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -140,7 +141,7 @@ export const TextField = forwardRef(function TextField(
         <Row alignment="start">
           <Text
             preset="Text md"
-            weight="normal"
+            weight="medium"
             text={label}
             tx={labelTx}
             txOptions={labelTxOptions}
@@ -224,7 +225,8 @@ export const TextField = forwardRef(function TextField(
         <Text
           preset="Text sm"
           weight="normal"
-          text={helper}
+          color={theme.colors.palette.neutral.main}
+          {...helperProps}
           tx={helperTx}
           txOptions={helperTxOptions}
           {...HelperTextProps}

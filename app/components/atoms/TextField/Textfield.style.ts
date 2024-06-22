@@ -2,10 +2,11 @@ import { StyleProp, TextStyle, ViewStyle } from "react-native"
 import { isRTL } from "app/i18n"
 import { Theme } from "app/theme/theme.types"
 import { spacing } from "app/theme/spacing"
+import { border } from "app/theme"
 
 export const $baseInputWrapperStyles = (theme: Theme): ViewStyle => ({
   borderWidth: 1,
-  borderRadius: 4,
+  borderRadius: border.extraSmall,
   backgroundColor: theme.colors.palette.neutral.contrastText,
   borderColor: theme.colors.palette.neutral[200],
   overflow: "hidden",
@@ -45,8 +46,8 @@ export const $baseInputStyles = (theme: Theme): StyleProp<TextStyle> => [
     // https://github.com/facebook/react-native/issues/21720#issuecomment-532642093
     paddingVertical: 0,
     paddingHorizontal: 0,
-    marginVertical: spacing.medium,
-    marginHorizontal: spacing.medium,
+    marginVertical: spacing.small,
+    marginHorizontal: spacing.small,
   },
   isRTL && { textAlign: "right" as TextStyle["textAlign"] },
 ]

@@ -165,6 +165,7 @@
     "regenerator-runtime": "^0.13.4",
     "standard-version": "^9.5.0",
     "ts-jest": "29",
+    "tsconfig-paths-jest": "^0.0.1",
     "typescript": "^5.0.4"
   },
   "resolutions": {

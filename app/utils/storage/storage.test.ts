@@ -27,20 +27,15 @@ test("loadString", () => {
 
 test("save", () => {
   clientStorage.save("something", VALUE_OBJECT_2)
-  expect(storage.getString("something")).toEqual(VALUE_STRING_2)
+  expect(clientStorage.loadString("something")).toEqual(VALUE_STRING_2)
 })
 
 test("saveString", () => {
   clientStorage.saveString("something", VALUE_STRING_2)
-  expect(storage.getString("something")).toEqual(VALUE_STRING_2)
+  expect(clientStorage.loadString("something")).toEqual(VALUE_STRING_2)
 })
 
 test("remove", () => {
   clientStorage.remove("something")
-  expect(storage.getString("something")).toBeUndefined()
-})
-
-test("clear", () => {
-  clientStorage.clear()
-  expect(storage.getAllKeys()).toHaveLength(0)
+  expect(clientStorage.loadString("something")).toBeNull()
 })

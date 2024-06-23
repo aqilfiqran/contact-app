@@ -9,8 +9,12 @@ import { useEffect } from "react"
 // why null? because we want to use the default values
 // how to make it required in
 const schema = Yup.object().shape({
-  firstName: Yup.string().trim().required("Nama depan wajib diisi"),
-  lastName: Yup.string().trim().required("Nama belakang wajib diisi"),
+  firstName: Yup.string()
+    .required("Nama depan wajib diisi")
+    .matches(/^[a-zA-Z]+$/, "Nama depan harus berupa huruf"),
+  lastName: Yup.string()
+    .required("Nama belakang wajib diisi")
+    .matches(/^[a-zA-Z]+$/, "Nama belakang harus berupa huruf"),
   age: Yup.string()
     .trim()
     .required("Umur wajib diisi")

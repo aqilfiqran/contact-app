@@ -1,12 +1,13 @@
 import { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { Button, Column, Spacer, Text } from "app/components/atoms"
+import { Button, Column, Spacer } from "app/components/atoms"
 import { Screen } from "app/components/molecules"
 import { spacing } from "app/theme/spacing"
 import { AppNavScreen, AppRouteProp, AppScreenProps } from "app/navigators"
 import { useNavigation, useRoute } from "@react-navigation/native"
 import { useHeader } from "app/utils/useHeader"
 import { useContactDelete } from "app/services/api/contact/useContactDelete"
+import Section from "./sections"
 
 export const ContactDetailScreen: FC<AppScreenProps> = observer(function ContactDetailScreen() {
   const navigation = useNavigation<AppNavScreen>()
@@ -67,9 +68,7 @@ export const ContactDetailScreen: FC<AppScreenProps> = observer(function Contact
         </Column>
       }
     >
-      <Column padding={{ h: spacing.large, v: spacing.medium }}>
-        <Text text="tab.home" preset="Display lg" weight="bold" />
-      </Column>
+      <Section.Information />
     </Screen>
   )
 })

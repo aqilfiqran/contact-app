@@ -21,7 +21,16 @@ const schema = Yup.object().shape({
       }
       return parseInt(value, 10) <= 150
     }),
-  photo: Yup.string().trim().required("Foto wajib diisi").url("Foto harus berupa URL"),
+  photo: Yup.string()
+    .trim()
+    .required("Foto wajib diisi")
+    // make url but bypass N/A
+    .test("url", "Foto harus berupa URL", (value) => {
+      if (value === "N/A") {
+        return true
+      }
+      return Yup.string().url().isValidSync(value)
+    }),
 })
 
 type Schema = {

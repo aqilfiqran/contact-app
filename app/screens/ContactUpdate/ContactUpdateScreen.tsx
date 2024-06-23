@@ -87,7 +87,8 @@ export const ContactUpdateScreen: FC<AppScreenProps> = observer(function Contact
                   onPress={() =>
                     openLinkInBrowser("https://vinicius73.github.io/gravatar-url-generator/")
                   }
-                />
+                />{" "}
+                atau isi dengan "N/A" jika tidak ada foto
               </Text>
             ),
           }}
